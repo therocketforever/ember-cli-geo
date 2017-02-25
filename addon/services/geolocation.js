@@ -6,6 +6,7 @@ export default Ember.Service.extend(Ember.Evented, {
 
   getLocation(geoOptions) {
 
+      console.log(process.env.EMBER_CLI_FASTBOOT )
     return new Ember.RSVP.Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition((geoObject) => {
         this.trigger('geolocationSuccess', geoObject, resolve);
@@ -18,6 +19,7 @@ export default Ember.Service.extend(Ember.Evented, {
 
   trackLocation(geoOptions) {
 
+      console.log(process.env.EMBER_CLI_FASTBOOT )
     return new Ember.RSVP.Promise((resolve, reject) => {
       navigator.geolocation.watchPosition((geoObject) => {
         this.trigger('geolocationSuccess', geoObject, resolve);
